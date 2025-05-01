@@ -69,3 +69,20 @@ class Client:
         result += f"Total: {total_amount}\n"
         result += f"Points: {frequent_renter_points}"
         return result
+
+class Price:
+
+    def get_charge(self, days_rented: int) -> float:
+        raise NotImplementedError("Subclasses must implement get_charge")
+
+    def get_frequent_renter_points(self, days_rented: int) -> int:
+        raise NotImplementedError("Subclasses must implement get_frequent_renter_points")
+
+class RegularPrice(Price):
+    pass
+
+class NewReleasePrice(Price):
+    pass
+
+class ChildrenPrice(Price):
+    pass
